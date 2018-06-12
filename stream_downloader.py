@@ -37,7 +37,7 @@ def _report_dead_cam(m3u8_target):
     Writes dead camera links to file to be removed 
     """
     with open("deadCams.txt", "r") as deadFile:
-        deadCamList = deadFile.readlines()
+        deadCamList = [line.rstrip('\n') for line in deadFile]
     with open("deadCams.txt", "a") as deadFile:
         if m3u8_target not in deadCamList:
             deadFile.write(m3u8_target)
